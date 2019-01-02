@@ -1,0 +1,15 @@
+.inputWindow {
+    align-content: center;
+    background-color: gray;
+    margin: 20px 20px;
+    display: flex;
+    width: 100px;
+    height: 20ps;
+    color: whitesmoke;
+}
+
+.SubmitButton {
+    width: 60px;
+    height: 20px;
+    overflow: unset;
+}

@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PhInput from './inputs/pH-input/pH-input.tsx';
 import * as serviceWorker from './serviceWorker';
-import YoComponent from './yocomponent'
+import { App } from './App';
 
 ReactDOM.render(
-    <PhInput />,
+    <App />,
     document.getElementById('root')
 )
 /* ReactDOM.render(

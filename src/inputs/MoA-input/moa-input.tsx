@@ -1,21 +1,21 @@
-import * as React from "react"
-import "./pH-input.css"
+import * as React from "react";
+import "./moa-input.css";
 
-interface IPhInputProps {
+interface ImoaInputProps {
   value?: number;
   name: string;
 }
 
-interface IPhInputState {
+interface ImoaInputState {
   value: number | string;
 }
 
-class PhInput extends React.Component<IPhInputProps, IPhInputState> {
+class MoaInput extends React.Component<ImoaInputProps, ImoaInputState> {
   constructor(props: any) {
-    super(props)
+    super(props);
     this.state = { value: 0 };
     this.takeValue = this.takeValue.bind(this);
-  };
+  }
 
   takeValue(event: any) {
     this.setState({ value: event.target.value });
@@ -25,10 +25,9 @@ class PhInput extends React.Component<IPhInputProps, IPhInputState> {
     return (
       <div>
         <form onSubmit={this.takeValue}>
-          <label>pH:
+          <label>Moles of acid(npk):
           <input className="inputWindow" onChange={this.takeValue}></input>
           </label>
-          <button type="button" className="SubmitButton" name="Submit" >Oblicz!</button>
         </form>
         {this.state.value}
       </div>
@@ -36,5 +35,4 @@ class PhInput extends React.Component<IPhInputProps, IPhInputState> {
   }
 }
 
-
-export default PhInput;
+export default MoaInput;
