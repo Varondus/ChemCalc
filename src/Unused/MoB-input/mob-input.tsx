@@ -1,34 +1,32 @@
-import * as React from "react"
-import "./pH-input.css"
+import * as React from "react";
+import "./mob-input.css";
 
-interface IPhInputProps {
+interface ImobInputProps {
   value?: number;
   name: string;
 }
 
-interface IPhInputState {
+interface ImobInputState {
   value: number | string;
 }
 
-class PhInput extends React.Component<IPhInputProps, IPhInputState> {
+class MobInput extends React.Component<ImobInputProps, ImobInputState> {
   constructor(props: any) {
-    super(props)
+    super(props);
     this.state = { value: 0 };
     this.takeValue = this.takeValue.bind(this);
-  };
+  }
 
   takeValue(event: any) {
     this.setState({ value: event.target.value });
   }
-
   render() {
     return (
       <div>
         <form onSubmit={this.takeValue}>
-          <label>pH:
-          <input className="inputWindow" onChange={this.takeValue}></input>
+          <label>Moles of base(npz):
+          <input className={'class. ' + this.props.name} onChange={this.takeValue}></input>
           </label>
-          <button type="button" className="SubmitButton" name="Submit" >Oblicz!</button>
         </form>
         {this.state.value}
       </div>
@@ -36,5 +34,4 @@ class PhInput extends React.Component<IPhInputProps, IPhInputState> {
   }
 }
 
-
-export default PhInput;
+export default MobInput;

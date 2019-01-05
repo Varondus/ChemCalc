@@ -26,7 +26,7 @@ class MoaInput extends React.Component<ImoaInputProps, ImoaInputState> {
       <div>
         <form onSubmit={this.takeValue}>
           <label>Moles of acid(npk):
-          <input className="inputWindow" onChange={this.takeValue}></input>
+          <input className={'class. ' + this.props.name} onChange={this.takeValue}></input>
           </label>
         </form>
         {this.state.value}
