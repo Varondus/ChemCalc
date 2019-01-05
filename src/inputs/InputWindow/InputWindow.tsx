@@ -3,17 +3,17 @@ import "./InputWindow.css";
 
 interface IInputWindowProps {
   name: string;
-  value: number | string;
+  value: number;
   onChange?: any
 }
 
 interface IInputWindowState {
-  value: number | string;
+  value: number | null;
 }
 class InputWindow extends React.Component<IInputWindowProps, IInputWindowState> {
   constructor(props: any) {
     super(props);
-    this.state = { value: 0 };
+    this.state = {value: null};
     this.takeValue = this.takeValue.bind(this);
   }
 
@@ -23,11 +23,9 @@ class InputWindow extends React.Component<IInputWindowProps, IInputWindowState> 
   }
 
   render() {
-    const inputValue = this.props.value
     return (
       <div>
         <form>
-
           <label>
             {this.props.name} :
             <input
@@ -35,10 +33,6 @@ class InputWindow extends React.Component<IInputWindowProps, IInputWindowState> 
               onChange={this.takeValue}
             />
           </label>
-
-          <button type="button" className="SubmitButton" name="Submit">
-            Oblicz!
-          </button>
         </form>
       </div>
     );

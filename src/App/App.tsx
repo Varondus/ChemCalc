@@ -4,11 +4,11 @@ import "./App.css";
 
 interface IAppProps {}
 interface IAppState {
-  pH: number | string;
-  MoA: number | string;
-  MoB: number | string;
-  pKa: number | string;
-  value?: number | string;
+    pH: number;
+    MoA: number;
+    MoB: number;
+    pKa: number;
+    value?: number
 }
 
 export class App extends React.Component<IAppProps, IAppState> {
@@ -25,25 +25,34 @@ export class App extends React.Component<IAppProps, IAppState> {
         this.updateMoA = this.updateMoA.bind(this);
         this.updateMoB = this.updateMoB.bind(this);
         this.updatepKa = this.updatepKa.bind(this);
+        this.calculate = this.calculate.bind(this)
     }
 
-//  event handlers for input windows
+//  event handlers for input windows, console logs are for development purposes only
 
     updatepH(pH: number) {
-      this.setState({pH});
+        this.setState({pH});
+        console.log(pH * 2)
     }
     updateMoA(MoA: number) {
         this.setState({MoA});
+        console.log(MoA * 2)
     }
     updateMoB(MoB: number) {
         this.setState({MoB});
+        console.log(MoB * 2)
     }
     updatepKa(pKa: number) {
         this.setState({pKa});
+        console.log(pKa * 2)
     }
 
     calculator(p1: number) {
     return Math.pow(10, -p1);
+    }
+    calculate(event: React.FormEvent<HTMLButtonElement>) {
+        const calculatedPH = Math.round((this.state.pKa - Math.log10(this.state.MoA / this.state.MoB)) * 100) / 100;
+        this.setState({ pH: calculatedPH});
     }
 
     // render 
@@ -58,6 +67,9 @@ export class App extends React.Component<IAppProps, IAppState> {
         <InputWindow name="MoA" value={MoA} onChange={this.updateMoA} />
         <InputWindow name="MoB" value={MoB} onChange={this.updateMoB} />
         <InputWindow name="pKa" value={pKa} onChange={this.updatepKa} />
+        <button className="SubmitButton" name="Submit" onClick={this.calculate}>
+            Oblicz!
+        </button>
       </div>
     );
   }
